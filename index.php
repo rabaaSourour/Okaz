@@ -1,5 +1,12 @@
 <?php
-require_once 'templates/header.php'
+require_once 'templates/header.php';
+require_once 'libs/pdo.php';
+require_once 'libs/listing.php';
+require_once 'libs/category.php';
+
+$listings = getListings();
+
+$categories = getCategories();
 ?>
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
