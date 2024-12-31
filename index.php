@@ -4,10 +4,12 @@ require_once 'libs/pdo.php';
 require_once 'libs/listing.php';
 require_once 'libs/category.php';
 
-$listings = getListings();
+$listings = getListings($pdo);
 
-$categories = getCategories();
+$categories = getCategories($pdo);
+
 ?>
+
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
         <img src="assets/images/logo-okaz.png" class="d-block mx-lg-auto img-fluid" alt="Logo Okaz" width="400" loading="lazy">
@@ -32,6 +34,18 @@ $categories = getCategories();
 
 </div>
 
+<div class="py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">Les catégories</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <?php
+        foreach ($categories as $key => $category) {
+            require 'templates/category_part.php';
+        }
+        ?>
+
+    </div>
+</div>
+
 <?php
-require_once 'templates/footer.php'
+require_once 'templates/footer.php';
 ?>
